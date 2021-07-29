@@ -57,7 +57,7 @@ class Tabula(nn.Module):
         for i, dim in enumerate(linear_sizes):
             layers.append(nn.Linear(no_inputs, dim))
             layers.append(nn.ReLU())
-            layers.append(nn.BatchNorm1d(no_inputs))
+            layers.append(nn.BatchNorm1d(dim))
             no_inputs = dim
             # Add dropout
             if dropout:
