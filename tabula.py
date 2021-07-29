@@ -69,10 +69,10 @@ class Tabula(nn.Module):
         # Add to object as a sequence
         self.layers = nn.Sequential(*layers)
 
-        def forward(self, cat_data, num_data):    
-            x = [emb(cat_data[:, i]) for i,emb in enumerate(self.embeddings)]
-            x = torch.cat(x, 1)
-            x = torch.cat([x, num_data], 1)
-            x = self.layers(x)
+    def forward(self, cat_data, num_data):    
+        x = [emb(cat_data[:, i]) for i,emb in enumerate(self.embeddings)]
+        x = torch.cat(x, 1)
+        x = torch.cat([x, num_data], 1)
+        x = self.layers(x)
 
-            return x
+        return x
